@@ -1,7 +1,7 @@
-# seapi
+# SeapiPy
 ### A Surface evolver API for python
 
-Documentation:
+Documentation: https://seapipy.readthedocs.io/
 
 Contribution guide:
 

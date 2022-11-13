@@ -1,1 +1,3 @@
-Hi! this is a first version of the documentation
+.. toctree::
+
+   lattice_class
