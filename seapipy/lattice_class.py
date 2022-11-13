@@ -48,7 +48,7 @@ class Lattice:
 
         return self.tessellation
 
-    def create_lattice_elements(self) -> tuple[dict, dict, dict]:
+    def create_lattice_elements(self) -> tuple:
         """
         Create the vertices, edges and cells from the scipy.spatial.Voronoi() objects
         :return: Vertices, edges and cell's list
@@ -167,7 +167,7 @@ class Lattice:
         return int(np.sign(self.get_cell_area(cell, all_vertices)))
 
     @staticmethod
-    def get_coordinates(vertices: dict) -> tuple[list, list]:
+    def get_coordinates(vertices: dict) -> tuple:
         """
         Get the coordinates for all vertices in the system
         :param vertices: List of vertices
@@ -181,7 +181,7 @@ class Lattice:
         return x_coordinates, y_coordinates
 
     @staticmethod
-    def get_edge_centroid(edge_id: int, vertices: list, edges: list) -> tuple[np.ndarray, np.ndarray]:
+    def get_edge_centroid(edge_id: int, vertices: list, edges: list) -> tuple:
         """
         Get the center of the requested edge
         :param edge_id: id of edge
