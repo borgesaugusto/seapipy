@@ -1,4 +1,4 @@
 Lattice class
 ====
-.. automodule:: lattice_class
+.. autoclass:: lattice_class
    :members:
