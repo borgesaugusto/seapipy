@@ -166,6 +166,14 @@ class Lattice:
         """
         return int(np.sign(self.get_cell_area(cell, all_vertices)))
 
+    def create_example_lattice(self, voronoi_seeds_std: float = 0.15, voronoi_seeds_step: int = 20):
+        self.generate_voronoi_tessellation(
+            self.generate_square_seeds(standard_deviation=voronoi_seeds_std,
+                                       spatial_step=voronoi_seeds_step))
+        vertices, edges, cells = self.create_lattice_elements()
+
+        return vertices, edges, cells
+
     @staticmethod
     def get_coordinates(vertices: dict) -> tuple:
         """

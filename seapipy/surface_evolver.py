@@ -5,12 +5,29 @@ import io
 
 @dataclass
 class SurfaceEvolver:
+    """
+    Class to interact with the Surface Evolver file buffer.
+    :param vertices: Vertices in the tesselation
+    :type vertices: dict
+    :param edges: Edges in the tesselation
+    :type edges: dict
+    :param vertices: Cells in the tesselation
+    :type cells: dict
+    :param density_values: Initial line tensions for the edges
+    :type density_values: dict
+    :param volume_values: Initial target areas in the tesselation
+    :type volume_values: dict
+    :param polygonal: Whether to use polygons or allowed curved edges
+    :type polygonal: bool, optional
+    """
     vertices: dict
     edges: dict
     cells: dict
 
     density_values: dict
     volume_values: dict
+
+    polygonal: bool = True
 
     def __post_init__(self):
         self.fe_file = io.StringIO()
@@ -55,6 +72,8 @@ class SurfaceEvolver:
         self.fe_file.write("gravity off \n")
         self.fe_file.write("ii := 0; \n")
 
+        if not self.polygonal:
+            self.add_refining_triangulation(2)
         return self.fe_file
 
     def add_vertex_averaging(self, how_many=1):
@@ -75,6 +94,42 @@ class SurfaceEvolver:
 
     def add_t1_swaps(self, max_size=0.1):
         self.fe_file.write(f"t1_edgeswap edge where length < {max_size}; \n")
+        return self.fe_file
+
+    def initial_relaxing(self, evolve_step: int = 1000, averaging: int = 100):
+        """
+        Initial standard relaxing with vertex averaging and scale change followed by evolution
+        :param evolve_step: Number of steps to evolve at each scale chnage
+        :type evolve_step: int
+        :param averaging: Number of vertex averagings to perform
+        :type evolve_step: int
+        :return: File buffer
+        :rtype: io.StringIO
+        """
+        self.add_vertex_averaging(averaging)
+        self.change_scale(0.25)
+        self.evolve_system(evolve_step)
+        self.add_vertex_averaging(averaging)
+        self.change_scale(0.1)
+        self.evolve_system(evolve_step)
+        self.add_vertex_averaging(averaging)
+        self.change_scale(0.01)
+        return self.fe_file
+    def evolve_relaxing(self, number_of_times: int = 1, steps: int = 1, max_size: float = 0.1):
+        """
+        Evolve the system a fixed number of steps and perform T1 swaps after a definite number of times
+        :param number_of_times: Number of times the evolution plus T1 swaps happen
+        :type number_of_times: int
+        :param steps: Number of evolution step for all iterations
+        :type steps: int
+        :param max_size: Maximum size allowed for membranes before a T1 happens
+        :type max_size: float
+        :return: File buffer
+        :rtype: io.StringIO
+        """
+        for _ in range(0, number_of_times):
+            self.evolve_system(steps)
+            self.add_t1_swaps(max_size)
         return self.fe_file
 
     def save_one_step(self, output_directory, file_name):
