@@ -1,4 +1,4 @@
 Lattice class
-====
-.. autoclass:: lattice_class
-   :members:
+=============
+.. autoclass:: seapipy.lattice_class.Lattice
+    :members:
