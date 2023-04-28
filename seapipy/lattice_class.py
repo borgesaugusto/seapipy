@@ -222,6 +222,16 @@ class Lattice:
         return {k: np.random.normal(center, standard_deviation) for k, _ in edges.items()}
 
     @staticmethod
+    def get_normally_distributed_volumes(cells: dict, means=(500,), stds=(50,), weights=None) -> dict:
+        assert len(means) == len(stds)
+        if len(means) > 1:
+            assert (weights is None) or (
+                        len(weights) == len(means)), f'"weights" and "values" have to be of equal length'
+            v = np.random.choice(len(means), len(cells), p=weights)
+            return {k: int(np.random.normal(means[v[i]], stds[v[i]])) for i, k in enumerate(cells.keys())}
+        return {k: int(np.random.normal(means[0], stds[0])) for k in cells.keys()}
+
+    @staticmethod
     def get_vertex_number(vertex: list, vertices: dict) -> int:
         """
         Get id of the vertex from the vertex position or new possible ID if the vertex is already known

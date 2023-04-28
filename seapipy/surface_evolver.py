@@ -73,7 +73,7 @@ class SurfaceEvolver:
         self.fe_file.write("ii := 0; \n")
 
         if not self.polygonal:
-            self.add_refining_triangulation(2)
+            self.add_refining_triangulation(3)
         return self.fe_file
 
     def add_vertex_averaging(self, how_many=1):
@@ -96,7 +96,7 @@ class SurfaceEvolver:
         self.fe_file.write(f"t1_edgeswap edge where length < {max_size}; \n")
         return self.fe_file
 
-    def initial_relaxing(self, evolve_step: int = 1000, averaging: int = 100):
+    def initial_relaxing(self, evolve_step: int = 2500, averaging: int = 100):
         """
         Initial standard relaxing with vertex averaging and scale change followed by evolution
         :param evolve_step: Number of steps to evolve at each scale chnage
@@ -115,6 +115,7 @@ class SurfaceEvolver:
         self.add_vertex_averaging(averaging)
         self.change_scale(0.01)
         return self.fe_file
+
     def evolve_relaxing(self, number_of_times: int = 1, steps: int = 1, max_size: float = 0.1):
         """
         Evolve the system a fixed number of steps and perform T1 swaps after a definite number of times
@@ -133,18 +134,19 @@ class SurfaceEvolver:
         return self.fe_file
 
     def save_one_step(self, output_directory, file_name):
-        self.fe_file.write(f"ff := sprintf '{output_directory}/{file_name}%d.dmp',ii; dump ff; ii+=1; \n")
+        self.fe_file.write(f'ff := sprintf "{output_directory}/{file_name}%d.dmp",ii; dump ff; ii+=1; \n')
         return self.fe_file
 
     def save_many_steps(self, output_directory, file_name, max_steps, time_step=1, averaging=1, max_size=0.1):
         self.fe_file.write('while ii < ' + str(max_steps) + ' do { '
                                                             'g ' + str(time_step) + '; V ' + str(averaging) +
                            '; t1_edgeswap edge where length < 0.1; '
-                           'ff := sprintf "' + output_directory + file_name + '%d.dmp",ii;'
-                                                                              ' dump ff; ii:=ii+1} \n')
+                           'ff := sprintf "' + output_directory + "/" + file_name + '%d.dmp",ii;'
+                                                                                    ' dump ff; ii:=ii+1} \n')
         return self.fe_file
 
     def save_fe_file(self, file_name):
+        self.fe_file.write('q; \n')
         with open(f'{file_name}', mode='w') as f:
             print(self.fe_file.getvalue(), file=f)
         return True
