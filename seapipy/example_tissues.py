@@ -1,7 +1,7 @@
 import numpy as np
 import scipy.stats as sps
-import lattice_class
-import surface_evolver
+import seapipy.lattice_class as lattice_class
+import seapipy.surface_evolver as surface_evolver
 
 
 class ExampleTissues:
