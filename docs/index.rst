@@ -1,16 +1,16 @@
 Welcome to documentation SeapiPy !
 ====================
 
+.. currentmodule:: seapipy
 .. autosummary::
     :toctree: stubs
-    :maxdepth: 2
 
-     Lattice
-     SurfaceEvolver
-     ExampleTissues
-     NormalFurrow
-     CircularFurrow
-     RandomCellTypes
+    Lattice
+    SurfaceEvolver
+    ExampleTissues
+    NormalFurrow
+    CircularFurrow
+    RandomCellTypes
 
 Indices
 ==================
