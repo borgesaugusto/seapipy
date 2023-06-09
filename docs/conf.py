@@ -5,7 +5,7 @@ project = 'SeapiPy'
 author = 'Augusto Borges'
 
 # release = '0.1'
-# version = '0.1.0'
+version = '0.1.0'
 
 # -- General configuration
 
@@ -34,6 +34,7 @@ html_theme = 'sphinx_rtd_theme'
 # -- Options for EPUB output
 # epub_show_urls = 'footnote'
 
+autodoc_default_flags = ['members']
 autosummary_generate = True
 
 autodoc_mock_imports = ['numpy', 'scipy']
