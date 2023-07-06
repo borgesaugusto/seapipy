@@ -2,6 +2,7 @@ Welcome to documentation SeapiPy !
 ====================
 
 .. currentmodule:: seapipy
+.. automodule:: seapipy
 .. autosummary::
     :toctree: stubs
 
