@@ -200,10 +200,9 @@ class Lattice:
         :return: X and Y coordinates
         :rtype: tuple
         """
-        x_coordinates = [x[0] for x in vertices.values()]
-        y_coordinates = [y[0] for y in vertices.values()]
+        x_coordinates, y_coordinates = zip(*vertices.values())
 
-        return x_coordinates, y_coordinates
+        return list(x_coordinates), list(y_coordinates)
 
     @staticmethod
     def get_edge_centroid(edge_id: int, vertices: list, edges: list) -> tuple:
