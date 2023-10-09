@@ -1,3 +1,4 @@
+[![codecov](https://codecov.io/gh/borgesaugusto/seapipy/graph/badge.svg?token=SJFFTX412I)](https://codecov.io/gh/borgesaugusto/seapipy)
 # SeapiPy 
 #### A Surface evolver API for python
 
