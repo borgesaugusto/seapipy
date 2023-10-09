@@ -1,5 +1,5 @@
-[![PyPI version](https://badge.fury.io/py/seapipy.svg)](https://badge.fury.io/py/seapipy)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/seapipy)
+[![PyPI version](https://badge.fury.io/py/seapipy.svg)](https://pypi.org/project/seapipy/)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/seapipy)](https://pypi.org/project/seapipy/)
 [![codecov](https://codecov.io/gh/borgesaugusto/seapipy/graph/badge.svg?token=SJFFTX412I)](https://codecov.io/gh/borgesaugusto/seapipy)
 # SeapiPy 
 #### A Surface evolver API for python
