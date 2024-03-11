@@ -23,9 +23,5 @@ dependencies = [
 ]
 requires-python = ">=3.9"
 
-[tool.pytest.ini_options]
-minversion = "7.0"
-testpaths = ["tests"]
-
 [project.urls]
 Homepage = "https://github.com/borgesaugusto/seapipy/"
