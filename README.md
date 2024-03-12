@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10809290.svg)](https://doi.org/10.5281/zenodo.10809290)
 [![PyPI version](https://badge.fury.io/py/seapipy.svg)](https://pypi.org/project/seapipy/)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/seapipy)](https://pypi.org/project/seapipy/)
 [![codecov](https://codecov.io/gh/borgesaugusto/seapipy/graph/badge.svg?token=SJFFTX412I)](https://codecov.io/gh/borgesaugusto/seapipy)
@@ -56,3 +57,7 @@ Finally you could save the whole Surface Evolver slate into the disk and run it 
 se_object.save_fe_file("SurfaceEvolverFile")
 sep.command.run_evolver("path/to/SurfaceEvolverFile", "path/to/SurfaceEvolverExecutable")
 ```
+
+
+### How to cite us
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10809290.svg)](https://doi.org/10.5281/zenodo.10809290)
