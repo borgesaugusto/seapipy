@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "seapipy"
-version = "0.1.0"
+version = "0.2.0"
 description = "A Surface evolver API for python"
 readme = "README.md"
 authors = [{ name = "Augusto Borges", email = "borges.augustoar@gmail.com" }]
