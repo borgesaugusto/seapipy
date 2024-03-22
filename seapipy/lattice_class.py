@@ -320,8 +320,7 @@ class Lattice:
 
         :param cell_vertices: List of vertex's id of the polygon
         :param vertices: Dictionary of vertices in the system
-        :return: Area of the polygon. Positive number indicates clockwise orientation, negative number
-        counterclockwise.
+        :return: Area of the polygon. Positive number indicates clockwise orientation, negative number counterclockwise.
         """
         x = [vertices[i][0] for i in cell_vertices]
         y = [vertices[i][1] for i in cell_vertices]
