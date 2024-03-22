@@ -128,3 +128,5 @@ examples/
 
 data/
 .idea/
+
+docs/_autosummary/*
