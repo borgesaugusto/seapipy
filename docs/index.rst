@@ -1,17 +1,12 @@
 Welcome to documentation SeapiPy !
-====================
+==================================
 
-.. currentmodule:: seapipy
-.. automodule:: seapipy
-.. autosummary::
-    :toctree: stubs
+.. toctree::
+   :hidden:
 
-    Lattice
-    SurfaceEvolver
-    ExampleTissues
-    NormalFurrow
-    CircularFurrow
-    RandomCellTypes
+   Home <self>
+   Examples <examples>
+   API reference <_autosummary/seapipy>
 
 Indices
 ==================

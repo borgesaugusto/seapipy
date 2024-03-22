@@ -5,12 +5,11 @@ project = 'SeapiPy'
 author = 'Augusto Borges'
 
 # release = '0.1'
-version = '0.1.0'
+version = '0.2.1'
 
 # -- General configuration
 
-sys.path.insert(0, os.path.abspath('../'))
-
+templates_path = ['_templates']
 extensions = [
     # 'sphinx.ext.duration',
     'sphinx.ext.doctest',
@@ -25,7 +24,6 @@ intersphinx_mapping = {
 }
 intersphinx_disabled_domains = ['std']
 
-# templates_path = ['_templates']
 
 # -- Options for HTML output
 
@@ -33,8 +31,9 @@ html_theme = 'sphinx_rtd_theme'
 
 # -- Options for EPUB output
 # epub_show_urls = 'footnote'
-
 autodoc_default_flags = ['members']
 autosummary_generate = True
+autosummary_imported_members = False
+autoclass_content = "both"
 
-autodoc_mock_imports = ['numpy', 'scipy']
+autodoc_mock_imports = ['numpy', 'scipy', 'matplotlib']
