@@ -194,11 +194,9 @@ class SurfaceEvolver:
         return self.fe_file
 
     def save_many_steps(self, output_directory, file_name, max_steps, time_step=1, averaging=1, max_size=0.1):
-        self.fe_file.write('while ii < ' + str(max_steps) + ' do { '
-                                                            'g ' + str(time_step) + '; V ' + str(averaging) +
-                           '; t1_edgeswap edge where length < 0.1; '
-                           'ff := sprintf "' + output_directory + "/" + file_name + '%d.dmp",ii;'
-                                                                                    ' dump ff; ii:=ii+1} \n')
+        self.fe_file.write(f'while ii < {max_steps} do {{ g {time_step}; V {averaging}; '
+                           f't1_edgeswap edge where length < {max_size}; ff := sprintf '
+                           f'"{output_directory}/{file_name}%d.dmp",ii; dump ff; ii:=ii+1}}\n')
         return self.fe_file
 
     def save_fe_file(self, file_name: str) -> bool:
