@@ -1,5 +1,6 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10809290.svg)](https://doi.org/10.5281/zenodo.10809290)
 [![PyPI version](https://badge.fury.io/py/seapipy.svg)](https://pypi.org/project/seapipy/)
+[![Anaconda-Server Badge](https://anaconda.org/conda-forge/seapipy/badges/version.svg)](https://anaconda.org/conda-forge/seapipy)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/seapipy)](https://pypi.org/project/seapipy/)
 [![codecov](https://codecov.io/gh/borgesaugusto/seapipy/graph/badge.svg?token=SJFFTX412I)](https://codecov.io/gh/borgesaugusto/seapipy)
 [![Documentation Status](https://readthedocs.org/projects/seapipy/badge/?version=latest)](https://seapipy.readthedocs.io/en/latest/?badge=latest)
@@ -13,7 +14,15 @@ https://seapipy.readthedocs.io/
 ---
 
 ###  Installation
+Using PIP
+```bash
+pip install seapipy
+```
 
+Using conda
+```bash
+conda install conda-forge::seapipy
+```
 ---
 
 ###  Usage
@@ -62,3 +71,10 @@ sep.command.run_evolver("path/to/SurfaceEvolverFile", "path/to/SurfaceEvolverExe
 
 ### How to cite us
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10809290.svg)](https://doi.org/10.5281/zenodo.10809290)
+This tool is also described in [bioRxiv](https://www.biorxiv.org/content/10.1101/2024.05.28.595800v1).
+
+To cite that preprint you may use:
+
+**ForSys: non-invasive stress inference from time-lapse microscopy**
+Augusto Borges, Jerónimo R. Miranda-Rodríguez, Alberto Sebastián Ceccarelli, Guilherme Ventura, Jakub Sedzinski, Hernán López-Schier, Osvaldo Chara
+bioRxiv 2024.05.28.595800; doi: https://doi.org/10.1101/2024.05.28.595800
